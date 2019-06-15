@@ -19,6 +19,7 @@ public:
 };
 
 std::map<int, KeyPair> Keys::KeyMap{
+//  https://docs.microsoft.com/en-us/windows/desktop/inputdev/virtual-key-codes
 //  hex id, sys key name,   human readable name
     {0xC1, {"[VK_ABNT_C1]", "[Abnt C1]"}},
     {0xC2, {"[VK_ABNT_C2]", "[Abnt C2]"}},

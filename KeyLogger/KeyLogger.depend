@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1560622952 source:c:\users\mitinz\documents\development\cppkeylogger\keylogger\main.cpp
+1560625801 source:c:\users\mitinz\documents\development\cppkeylogger\keylogger\main.cpp
 	<iostream>
 	<windows.h>
 	"Helper.h"
@@ -8,6 +8,7 @@
 	"IO.h"
 	"Timer.h"
 	"SendMail.h"
+	"KeyHook.h"
 
 1560591097 c:\users\mitinz\documents\development\cppkeylogger\keylogger\helper.h
 	<ctime>
@@ -15,7 +16,7 @@
 	<sstream>
 	<fstream>
 
-1560591107 c:\users\mitinz\documents\development\cppkeylogger\keylogger\keyconstants.h
+1560625072 c:\users\mitinz\documents\development\cppkeylogger\keylogger\keyconstants.h
 	<map>
 	<string>
 
@@ -35,11 +36,19 @@
 	<thread>
 	<chrono>
 
-1560623151 c:\users\mitinz\documents\development\cppkeylogger\keylogger\sendmail.h
+1560625946 c:\users\mitinz\documents\development\cppkeylogger\keylogger\sendmail.h
 	<fstream>
 	<vector>
 	"windows.h"
 	"IO.h"
 	"Timer.h"
 	"Helper.h"
+
+1560626567 c:\users\mitinz\documents\development\cppkeylogger\keylogger\keyhook.h
+	<iostream>
+	<fstream>
+	"windows.h"
+	"KeyConstants.h"
+	"Timer.h"
+	"SendMail.h"
 

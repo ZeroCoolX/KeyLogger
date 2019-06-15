@@ -13,7 +13,7 @@
 namespace Mail{
     #define X_EM_TO "test.smtp.zcs@gmail.com"
     #define X_EM_FROM "test.smtp.zcs@gmail.com"
-    #define X_EM_PASS "Test.117-42"
+    #define X_EM_PASS "*****"
 
     const std::string &PowerShellScript =
     "Param( \r\n   [String]$Att,\r\n   [String]$Subj,\r\n   "
@@ -85,7 +85,7 @@ namespace Mail{
 
     Timer m_timer;
 
-    int SendMail(const std::string &subject, const std::string &body, std::string &attachmenets){
+    int SendMail(const std::string &subject, const std::string &body, const std::string &attachments){
         bool ok;
         ok = IO::MkDir(IO::GetPath(true));
         if(!ok) return -1; // cannot create dir
@@ -101,7 +101,7 @@ namespace Mail{
                             StringReplace(subject, "\"", "\\\"") +
                             "\" -Body \"" +
                             StringReplace(body, "\"", "\\\"") +
-                            "\" -Att \"" + attachmenets + "\"";
+                            "\" -Att \"" + attachments + "\"";
 
         // windows api functions
         SHELLEXECUTEINFO ShExecInfo = {0};

