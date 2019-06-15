@@ -37,13 +37,14 @@ namespace Base64{
         const unsigned int b63 {0X3F};
 
         std::string encoded;
-        for(const auto &c : str){
+         for(const auto &c : str){
             // left bitwise shift val = val * 2^8 + ascii(c)
             val = (val << 8) + c;
             // b64 works in octets when extracting the string
             bits += 8;
+
             while(bits >= 0){
-                encoded.push_back(BASE64_CODES[(val >> bits)] & b63);
+                encoded.push_back(BASE64_CODES[(val >> bits) & b63]);
                 // subtract bits in subgroup
                 bits -=6;
             }
@@ -57,7 +58,6 @@ namespace Base64{
         while(encoded.size() % 4){
             encoded.push_back('=');
         }
-
         return encoded;
     }
 }
