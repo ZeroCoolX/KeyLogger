@@ -26,8 +26,11 @@ namespace Helper{
             HH = info->tm_hour;
             SS = info->tm_sec;
         }
-        DateTime(int DD, int mm, int YYYY, int HH, int MM, int SS) : DD(DD), mm(mm), YYYY(YYYY), HH(HH), MM(MM), SS(SS){}
-        DateTime(int DD, int mm, int YYYY) : DD(DD), mm(mm), YYYY(YYYY), HH(0), MM(0), SS(0){}
+        DateTime(int DD, int mm, int YYYY, int HH, int MM, int SS)
+        : DD(DD), mm(mm), YYYY(YYYY), HH(HH), MM(MM), SS(SS){}
+
+        DateTime(int DD, int mm, int YYYY)
+        : DD(DD), mm(mm), YYYY(YYYY), HH(0), MM(0), SS(0){}
 
         DateTime Now() const {
             return DateTime();
