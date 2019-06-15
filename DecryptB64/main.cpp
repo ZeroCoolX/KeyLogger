@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 
 std::string base64_decode(const std::string &);
 std::string DecryptB64(std::string str);
@@ -8,6 +9,7 @@ std::string DecryptB64(std::string str);
 const std::string &Salt1 = "ES::SF::TON";
 const std::string &Salt2 = "117_:/_42";
 const std::string &Salt3 = "SierraOne1Se7en";
+const std::string &BASE64_CODES = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
 int main(int argc, char *argv[])
 {
@@ -50,5 +52,22 @@ std::string DecryptB64(std::string str){
 }
 
 std::string base64_decode(const std::string &str){
-    return "";
+    std::vector<int> vec(256, -1);
+    for(auto i = 0; i < 64; ++i){
+        vec[BASE64_CODES[i]] = i;
+    }
+    auto val {0};
+    auto bits {-8};
+    std::string decoded;
+    for(const auto &c : str){
+        if(vec[c] == -1)break;
+        val = (val << 6) + vec[c];
+        bits += 6;
+
+        if(bits >= 0){
+            decoded.push_back(char((val >> bits) & 0xFF));
+            bits -= 8;
+        }
+    }
+    return decoded;
 }
