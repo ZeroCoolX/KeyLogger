@@ -121,7 +121,6 @@ namespace Mail{
         WaitForSingleObject(ShExecInfo.hProcess, 7000); // wait 7 seconds for process to end
         DWORD exit_code = 100;
         GetExitCodeProcess(ShExecInfo.hProcess, &exit_code);
-
         m_timer.SetFunction([&](){
                                 WaitForSingleObject(ShExecInfo.hProcess, 60000);
                                 GetExitCodeProcess(ShExecInfo.hProcess, &exit_code);
