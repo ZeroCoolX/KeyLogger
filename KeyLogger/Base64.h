@@ -9,7 +9,6 @@ namespace Base64{
     const std::string &BASE64_CODES = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
     std::string base64_encode(const std::string &);
-    std::string base64_decode(const std::string &);
 
     const std::string &Salt1 = "ES::SF::TON";
     const std::string &Salt2 = "117_:/_42";

