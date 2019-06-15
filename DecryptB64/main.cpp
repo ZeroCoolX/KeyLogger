@@ -18,6 +18,8 @@ int main(int argc, char *argv[])
 
     std::ifstream fin(in);
     if(!fin) return std::cout << "Unable to open input file '" << in << "'" << std::endl, 3;
+    std::cout << "Decrypting file " << in << std::endl;
+
     std::string data;
     fin >> data;
     if(!fin) return std::cout << "Input file '" << in << "' corrupted." << std::endl, 4;
@@ -26,7 +28,9 @@ int main(int argc, char *argv[])
 
     std::ofstream fout(out);
     if(!fout) return std::cout << "Unable to open output file '" << out << "'" << std::endl, 5;
+    fout << data;
 
+    std::cout << "File " << in << " successfully decrypted to " << out << std::endl;
     return 0;
 }
 
