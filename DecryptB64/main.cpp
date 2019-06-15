@@ -11,9 +11,10 @@ const std::string &Salt2 = "117_:/_42";
 const std::string &Salt3 = "SierraOne1Se7en";
 const std::string &BASE64_CODES = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
+
 int main(int argc, char *argv[])
 {
-    if(argc != 3) return std::cout << "Invalid number of args. Require Input and Output file." << std::endl, 2;
+    if(argc != 3) return std::cout << "Invalid number of args. Require Input and Output file." << std::endl,  2;
 
     std::string in {argv[1]};
     std::string out {argv[2]};
