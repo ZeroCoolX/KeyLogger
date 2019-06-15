@@ -9,7 +9,7 @@ private:
     std::thread Thread;                                                 // non main blocking thread instance
     bool Alive {false};                                                 // thread status
     std::function<void(void)> funct = nullptr;                          // reference to a function to call
-    std::chrono::milliseconds interval {std::chrono::milliseconds(0)};   // interval between function calls.
+    std::chrono::milliseconds interval {std::chrono::milliseconds(0)};  // interval between function calls.
     long CallCount {-1L};                                               // determine how many we want to call a certain function
     long repeat_count {-1L};                                            // count number of times a function is called from max -> 0
 
