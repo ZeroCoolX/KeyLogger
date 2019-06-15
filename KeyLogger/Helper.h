@@ -4,6 +4,7 @@
 #include <ctime>
 #include <string>
 #include <sstream>
+#include <fstream>
 
 namespace Helper{
 
@@ -19,7 +20,7 @@ namespace Helper{
             struct tm* info = localtime(&sec);
 
             DD = info->tm_mday;
-            mm = info->tm_month + 1;
+            mm = info->tm_mon + 1;
             YYYY = 1900 + info->tm_year;
             MM = info->tm_min;
             HH = info->tm_hour;
@@ -40,7 +41,7 @@ namespace Helper{
 
         std::string GetTimeString(const std::string &delim = ":") const{
             return  std::string(HH < 10 ? "0" : "") + ToString(HH) + delim +
-                    std::string(MM < 10 ? "0" : "") + ToString(MM) + delim
+                    std::string(MM < 10 ? "0" : "") + ToString(MM) + delim +
                     std::string(SS < 10 ? "0" : "") + ToString(SS);
         }
 

