@@ -17,3 +17,12 @@ The Keylogger is able to capture all the keystrokes using system hooks. In addit
   * X_EM_PASS
  * In addition - ensure that you enable "Allow Less Secure Apps" on gmail for the accoutn
  * https://devanswers.co/allow-less-secure-apps-access-gmail-account/
+ 
+ ## Usage instructions
+ * The build target is named "Microsoft.cleanup.exe" by default.
+   * On runtime you will have no indication of a processes running (window popup/flash) but you can find it in the TaskManager
+ * It creates a folder on initial startup, in where it stores the log files that get emailed as well as where the PS script gets generated
+   * %AppData%\Roaming\Microsoft\CLR
+ * For debug purposes an AppLog.txt is written to the executing directory on startup
+   * This is useful because the keylogger doesn't crash, it swallows exceptions and continues trying - otherwise too much attention and maintenence would be needed
+     * For example Gmail is denying your credentials
