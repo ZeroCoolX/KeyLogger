@@ -26,3 +26,18 @@ The Keylogger is able to capture all the keystrokes using system hooks. In addit
  * For debug purposes an AppLog.txt is written to the executing directory on startup
    * This is useful because the keylogger doesn't crash, it swallows exceptions and continues trying - otherwise too much attention and maintenence would be needed
      * For example Gmail is denying your credentials
+
+
+# DecryptB64
+
+Decrypts log files emailed by the Keylogger.
+
+## Setup instructions
+* To compile it you need to enable C++11 standard and DISABLE the -mwindows flag
+
+ ## Usage instructions
+ * Run the .exe providing 2 params, input file to decrypt and output file to write to
+ 
+~\DecryptB64\bin\Debug>DecryptB64.exe "16.06.2019 09_33_53.log" "DecryptTest\decrypt.txt"
+Decrypting file 16.06.2019 09_33_53.log
+File 16.06.2019 09_33_53.log successfully decrypted to DecryptTest\decrypt.txt
